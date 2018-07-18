@@ -69,6 +69,7 @@ void QQMusicAPI::getKey()
     url.setQuery(query.toString(QUrl::FullyEncoded));
 
     QNetworkRequest request(url);
+    request.setRawHeader("Referer", "http://y.qq.com/portal/player.html");
     QNetworkReply *reply = http->get(request);
 
     connect(reply, &QNetworkReply::finished, this, &QQMusicAPI::getKeyFinished);
